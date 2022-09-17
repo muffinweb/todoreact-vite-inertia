@@ -8,6 +8,8 @@ import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 
 export default function Login({ status, canResetPassword }) {
+    console.log(status);
+    console.log(canResetPassword);
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
         password: '',

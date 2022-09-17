@@ -15,15 +15,30 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+//Route::get('/', function () {
+//
+//    return Inertia::render('Welcome', [
+//        'canLogin' => Route::has('login'),
+//        'canRegister' => Route::has('register'),
+//        'laravelVersion' => Application::VERSION,
+//        'phpVersion' => PHP_VERSION,
+//    ]);
+//});
 
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+
+Route::get('/', function() {
+    return Inertia::render('TodoAppPages/Main', [
+        'apiVersion' => '1.2',
+        'author' => 'Ugur Cengiz'
     ]);
-});
+})->middleware('auth');
+
+
+
+Route::get('login-v2', function(){
+    return Inertia::render('TodoAppPages/LoginPage', []);
+})->name('loginv2');
+
 
 
 Route::get('/todolist', function(){
